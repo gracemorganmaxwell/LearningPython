@@ -1,0 +1,47 @@
+# Documentation for Q2. Ticketing System Simulation
+
+**Assignment:** IT6033 - Assignment 1
+**Task:** Ticketing System Queue Simulation
+**Student:** 20200261, G Morgan-Maxwell
+**Date:** November 2023
+**Course:** Bachelor's Degree in Software Engineering at Whitecliffes College
+
+## Purpose
+
+The purpose of this program is to simulate a ticketing system where customers take a number when they arrive at a shop and are served in the order of their arrival. This simulation demonstrates the First-In-First-Out (FIFO) principle using a queue data structure, which is pivotal for understanding queuing theory in computer science and software development.
+
+## Overview of the Queue Data Structure
+
+A queue is a linear data structure that follows a particular order in which the operations are performed. The order is First In First Out (FIFO). A good example of a queue is any queue of consumers for a resource where the consumer that came first is served first. The difference between stacks and queues is in removing items. In a stack, we remove the item the most recently added; in a queue, we remove the item the least recently added.
+
+## Deque in Python
+
+In Python, a *deque* (double-ended queue) is an enhanced version of a queue that allows insertion and removal of elements from both ends. This program uses deque from the collections module, which provides a fast and memory-efficient way of implementing a queue.
+
+## How It Works
+
+### NewCustomers Function
+
+The *NewCustomers* function simulates the arrival of new customers. It uses a global counter to assign a unique identifier to each customer and appends them to the queue. This function is scheduled to run every 3 seconds, reflecting the steady arrival of customers.
+
+### SeeCustomers Function
+
+The *SeeCustomers* function simulates the shop assistant attending to customers. It removes a customer from the front of the queue every 5 seconds, which adheres to the FIFO principle. If the queue is empty, it informs that there are no customers to see.
+
+### Threading and Timers
+
+Both functions *NewCustomers* and *SeeCustomers* are scheduled using the *threading.Timer* class. This allows the simulation to perform actions at regular intervals. The *NewCustomers* function is called every 3 seconds, and the *SeeCustomers* function is called every 5 seconds, simulating the concurrent flow of customers arriving and being served.
+
+### Welcome Message
+
+A welcome message is printed to the console at the start of the script to simulate a greeting that customers would receive upon entering the shop.
+
+## Summary
+
+The code successfully simulates a ticketing system using a queue implemented with a *deque* data structure. It demonstrates the FIFO principle by ensuring customers are served in the order they arrive. The threading.Timer class allows the simulation to run in real-time, scheduling the arrival of new customers and the serving of current customers at different intervals.
+
+The use of *deque* for the queue ensures that the system can handle operations with *O*(1) complexity, which is essential for maintaining performance as the number of customers grows. This simulation provides a practical example of how queues are utilized in software to manage resources and order processing.
+
+---
+
+Thank you for reading. This documentation provides insight into the program's purpose and operation, aiding in understanding the mechanics of its logic.
