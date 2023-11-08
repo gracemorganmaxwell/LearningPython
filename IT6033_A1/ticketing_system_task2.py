@@ -7,24 +7,24 @@ Accompaniment documentation in file: task2ReadMe.md
 import threading
 from collections import deque
 # Initialize the customer queue using deque for efficient queue operations.
-customer_queue = deque()
+customerQueue = deque()
 
 # This global counter will uniquely identify each customer.
-customer_counter = 0
+customerCounter = 0
 
 
 def NewCustomers():
     # Declare the use of the global customer_counter to ensure it's not localized.
-    global customer_counter
+    global customerCounter
 
     # Increment the global customer counter to assign a unique number to the new customer.
-    customer_counter += 1
+    customerCounter += 1
 
     # Add the new customer to the queue.
-    customer_queue.append(f"Customer {customer_counter}")
+    customerQueue.append(f"Customer {customerCounter}")
 
     # Print to the console to indicate a new customer has arrived.
-    print(f"New Customer Arrived: Customer {customer_counter}")
+    print(f"New Customer Arrived: Customer {customerCounter}")
     """
     Using threading.Timer to wait 3 seconds before calling this function again. 
     Which sets up a recurring loop, with a new customer arriving every 3 seconds.
@@ -34,9 +34,9 @@ def NewCustomers():
 
 def SeeCustomers():
     # Check the queue for any waiting customers.
-    if customer_queue:
+    if customerQueue:
         # Pop the first customer from the queue to be seen.
-        customer = customer_queue.popleft()
+        customer = customerQueue.popleft()
 
         # Output to console that the customer is being seen.
         print(f"Customer being seen: {customer}")
