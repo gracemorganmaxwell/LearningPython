@@ -1,8 +1,12 @@
+"""
+Assignment: IT6033 - Assignment 1
+Task 2: Ticketing System Simulation
+Student: 20200261, G Morgan-Maxwell
+Accompaniment documentation in file: task2ReadMe.md
+"""
 import threading
 from collections import deque
-
-# Initialize a deque for the customer queue. A deque is chosen because it's optimized for
-# both appending and popping from the ends, which is exactly what we need for a queue system.
+# Initialize the customer queue using deque for efficient queue operations.
 customer_queue = deque()
 
 # This global counter will uniquely identify each customer.
@@ -10,8 +14,7 @@ customer_counter = 0
 
 
 def NewCustomers():
-    # We need to tell Python that we'll be using the global variable 'customer_counter'
-    # inside this function to ensure we're updating the global one, not creating a local one.
+    # Declare the use of the global customer_counter to ensure it's not localized.
     global customer_counter
 
     # Increment the global customer counter to assign a unique number to the new customer.
@@ -22,33 +25,32 @@ def NewCustomers():
 
     # Print to the console to indicate a new customer has arrived.
     print(f"New Customer Arrived: Customer {customer_counter}")
-
-    # Use threading.Timer to wait 3 seconds before calling this function again.
-    # This sets up a recurring loop, with a new customer arriving every 3 seconds.
+    """
+    Using threading.Timer to wait 3 seconds before calling this function again. 
+    Which sets up a recurring loop, with a new customer arriving every 3 seconds.
+    """
     threading.Timer(3, NewCustomers).start()
 
 
 def SeeCustomers():
-    # Check if there are any customers in the queue.
+    # Check the queue for any waiting customers.
     if customer_queue:
-        # Remove (pop) the first customer from the queue.
-        # The popleft() operation is quick and efficient on a deque.
+        # Pop the first customer from the queue to be seen.
         customer = customer_queue.popleft()
 
-        # Print to the console to indicate that this customer is now being seen.
+        # Output to console that the customer is being seen.
         print(f"Customer being seen: {customer}")
     else:
-        # If there are no customers in the queue, inform the console.
+        # Notify via console that there are no customers waiting.
         print("No customers to see.")
-
-    # Set up another timer to call this function again after 5 seconds,
-    # creating a loop that 'sees' a customer every 5 seconds.
-    threading.Timer(5, SeeCustomers).start()
+        # Schedule the SeeCustomers function to check again after 5 seconds.
+        threading.Timer(5, SeeCustomers).start()
 
 
-# Before starting the timed loops, print a welcome message to the console.
+# Before starting, output a welcome message to the console before starting the service loops for the shop.
+
 print("Welcome to our shop counter, please take a ticket and we will call your number shortly, thank you")
 
-# Call the functions for the first time to start the process.
+# Initialize the customer service process by calling NewCustomers and SeeCustomers.
 NewCustomers()
 SeeCustomers()

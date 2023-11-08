@@ -1,7 +1,8 @@
-# Documentation for Q1. Expression Validation
+#  Expression Validation 
+## Documentation for validate_expressions_task1.py
 
 **Assignment:** IT6033 - Assignment 1
-**Task:** Expression Validation
+**Task 1:** Expression Validation
 **Student:** 20200261, G Morgan-Maxwell
 **Date:** November 2023
 **Course:** Bachelor's Degree in Software Engineering at Whitecliffes College

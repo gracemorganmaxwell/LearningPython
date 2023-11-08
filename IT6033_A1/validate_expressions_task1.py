@@ -1,7 +1,9 @@
-# Assignment: IT6033 - Assignment 1
-# Task: Expression Validation
-# Student: 20200261, G Morgan-Maxwell
-
+"""
+Assignment: IT6033 - Assignment 1
+Task 1: Expression Validation
+Student: 20200261, G Morgan-Maxwell
+Accompaniment documentation in file: task1ReadME.md
+"""
 def ExpValidator(expression, opening_char, closing_char):
     """
     Validates if brackets in an expression match correctly.
